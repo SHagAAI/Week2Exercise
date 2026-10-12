@@ -2,30 +2,35 @@
 // dotnet new console -n Foobarjazz 
 // dotnet sln Week2Exercise.sln add Foobarjazz/Foobarjazz.csproj
 
-int maxNum = 50;
+using System.Threading.Tasks.Dataflow;
+
+int maxNum = 150;
 
 var numbers = Enumerable.Range(1, maxNum);
+string foobarjazz = string.Empty;
 
 foreach (int num in numbers)
 {
 
-    if (num % 3 == 0 && num % 5 == 0)
-    {
-        Console.Write(" foobar ");
-        continue;
-    }
-
     if (num % 3 == 0)
     {
-        Console.Write(" foo, ");
-        continue;
+        foobarjazz += "foo";
     }
 
     if (num % 5 == 0)
     {
-        Console.Write(" bar, ");
-        continue;
+        foobarjazz += "bar";
     }
 
-    Console.Write(num + ", ");
+    if (num % 7 == 0)
+    {
+        foobarjazz += "jazz";
+    }
+    
+    if (foobarjazz != string.Empty)
+    {
+        Console.WriteLine($"{num} : {foobarjazz}");
+    }
+    foobarjazz = string.Empty;
+
 }
