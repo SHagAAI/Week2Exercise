@@ -1,4 +1,6 @@
-﻿List<string> myStack = [];
+﻿using Stack2;
+
+List<string> myStack = [];
 
 void Type(string text)
 {
